@@ -18,6 +18,8 @@ class Clients extends Model
         'Ciutat',
         'Pais',
         'Email',
+        'Número del permís de conducció',
+        'Punts del permís de conducció',
         'Numero de tajeta',
     ];
     

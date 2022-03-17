@@ -22,6 +22,8 @@ class CreateClientsTable extends Migration
             $table->string('Ciutat');
             $table->string('Pais');
             $table->string('Email');
+            $table->string('Número del permís de conducció');
+            $table->integer('Punts del permís de conducció');
             $table->enum('Tipus de tajeta', ['Debit', 'Credit']);
             $table->integer('Numero de tajeta');
         });
