@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Ususaris;
+use App\Models\Usuaris;
 
 class ControladorUsuaris extends Controller
 {
@@ -15,9 +15,8 @@ class ControladorUsuaris extends Controller
     public function index()
     {
         //
-
-        $usuaris = Ususaris::all();
-        return view('usuaris.index', compact('usuaris'));
+        $usuaris = Usuaris::all();
+        return view('indexUsuaris', compact('usuaris'));
     }
 
     /**
@@ -29,7 +28,7 @@ class ControladorUsuaris extends Controller
     {
         //
 
-        return view('usuaris');
+        return view('creaUsuaris');
     }
 
     /**
@@ -43,14 +42,16 @@ class ControladorUsuaris extends Controller
         //
 
         $nouUsuari = $request->validate([
-            'DNI_client' => 'required|unique:usuaris|max:9',
-            'Nom i cognoms' => 'required|max:50',
+            'Nom_i_cognoms' => 'required|string|max:50',
             'Email' => 'required|max:50',
             'Contrasenya' => 'required|max:50',
-            'Tipus d\'usuari' => 'required|max:50',
-            'Darrera hora d\'entrada' => 'required|max:50',
-            'Darrera hora de sortida' => 'required|max:50',
+            'Tipus_de_usuari' => 'required|max:50',
+            'Darrera_hora_de_entrada' => 'required|date_format:H:i',
+            'Darrera_hora_de_sortida' => 'required|date_format:H:i',
         ]);
+
+        $usuari = Usuaris::create($nouUsuari);
+        return redirect('/usuaris')->with('Mensaje', 'Usuari creat correctament');
     }
 
     /**
@@ -70,12 +71,12 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($Email)
     {
         //
 
-        $usuari = Ususaris::findOrFail($id);
-        return view('ActualitzaUsuaris', compact('usuari'));
+        $usuaris = Usuaris::findOrFail($Email);
+        return view('ActualitzaUsuaris', compact('usuaris'));
 
     }
 
@@ -91,13 +92,12 @@ class ControladorUsuaris extends Controller
         //
 
         $dades = $request->validate([
-            'DNI_client' => 'required|unique:usuaris|max:9',
-            'Nom i cognoms' => 'required|max:50',
-            'Email' => 'required|max:50|unique:usuaris',
+            'Nom_i_cognoms' => 'required|max:50',
+            'Email' => 'required|max:50',
             'Contrasenya' => 'required|max:50',
-            'Tipus d\'usuari' => 'required|max:50',
-            'Darrera hora d\'entrada' => 'required|max:50',
-            'Darrera hora de sortida' => 'required|max:50',
+            'Tipus_de_usuari' => 'required|max:50',
+            'Darrera_hora_de_entrada' => 'required|date_format:H:i',
+            'Darrera_hora_de_sortida' => 'required|date_format:H:i',
         ]);
 
         Usuaris::where('id', $id)->update($dades);
@@ -110,12 +110,12 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($Email)
     {
         //
 
-        $usuari = Ususaris::findOrFail($id);
-        $usuari->delete();
+        $usuaris = Usuaris::findOrFail($Email);
+        $usuaris->delete();
         return redirect('/usuaris')->with('completed', 'Usuari eliminat correctament');
     }
 }

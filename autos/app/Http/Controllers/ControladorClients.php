@@ -17,7 +17,7 @@ class ControladorClients extends Controller
         //
 
         $clients = Clients::all();
-        return view('clients.index', compact('clients'));
+        return view('indexClients', compact('clients'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ControladorClients extends Controller
     {
         //
 
-        return view('clients');
+        return view('creaClients');
     }
 
     /**
@@ -44,17 +44,17 @@ class ControladorClients extends Controller
 
         $nouClient = $request->validate([
             'DNI_client' => 'required|unique:clients|max:9',
-            'Nom i cognoms' => 'required|max:50',
+            'Nom_i_cognoms' => 'required|max:50',
             'Edat' => 'required|max:2',
             'Telefon' => 'required|max:9',
             'Adreça' => 'required|max:50',
             'Ciutat' => 'required|max:50',
             'Pais' => 'required|max:50',
             'Email' => 'required|max:50',
-            'Número del permís de conducció' => 'required|max:9',
-            'Punts del permís de conducció' => 'required|max:2',
-            'Tipus de tajeta' => 'required|max:50',
-            'Numero de tajeta' => 'required|max:16',
+            'Número_del_permís_de_conducció' => 'required|max:9',
+            'Punts_del_permís_de_conducció' => 'required|max:2',
+            'Tipus_de_tajeta' => 'required|max:50',
+            'Numero_de_tajeta' => 'required|max:16',
         ]);
     }
 
@@ -96,17 +96,17 @@ class ControladorClients extends Controller
 
         $dades = $request->validate([
             'DNI_client' => 'required|unique:clients|max:9',
-            'Nom i cognoms' => 'required|max:50',
+            'Nom_i_cognoms' => 'required|max:50',
             'Edat' => 'required|max:2',
             'Telefon' => 'required|max:9',
             'Adreça' => 'required|max:50',
             'Ciutat' => 'required|max:50',
             'Pais' => 'required|max:50',
             'Email' => 'required|max:50',
-            'Número del permís de conducció' => 'required|max:9',
-            'Punts del permís de conducció' => 'required|max:2',
-            'Tipus de tajeta' => 'required|max:50',
-            'Numero de tajeta' => 'required|max:16',
+            'Número_del_permís_de_conducció' => 'required|max:9',
+            'Punts_del_permís_de_conducció' => 'required|max:2',
+            'Tipus_de_tajeta' => 'required|max:50',
+            'Numero_de_tajeta' => 'required|max:16',
         ]);
 
         Clients::where('id', $id)->update($dades);

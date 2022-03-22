@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clients;
+use App\Models\Lloguers;
 
 class ControladorLloguers extends Controller
 {
@@ -17,7 +17,7 @@ class ControladorLloguers extends Controller
         //
 
         $lloguers = Lloguers::all();
-        return view('lloguers.index', compact('lloguers'));
+        return view('indexLloguers', compact('lloguers'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ControladorLloguers extends Controller
     {
         //
 
-        return view('lloguers');
+        return view('creaLloguers');
     }
 
     /**
@@ -47,10 +47,10 @@ class ControladorLloguers extends Controller
             'Matricula_auto' => 'required|max:10',
             'Data_prestec' => 'required|max:10',
             'Data_devolucio' => 'required|max:10',
-            'Lloc de devolucio' => 'required|max:255',
-            'Preu per dia' => 'required|max:255',
-            'Deposit ple' => 'required|max:255',
-            'Tipus de assegurança' => 'required|max:255',
+            'Lloc_de_devolucio' => 'required|max:255',
+            'Preu_per_dia' => 'required|max:255',
+            'Deposit_ple' => 'required|max:255',
+            'Tipus_de_assegurança' => 'required|max:255',
 
         ]);
     }
@@ -96,10 +96,10 @@ class ControladorLloguers extends Controller
             'Matricula_auto' => 'required|max:10',
             'Data_prestec' => 'required|max:10',
             'Data_devolucio' => 'required|max:10',
-            'Lloc de devolucio' => 'required|max:255',
-            'Preu per dia' => 'required|max:255',
-            'Deposit ple' => 'required|max:255',
-            'Tipus de assegurança' => 'required|max:255',
+            'Lloc_de_devolucio' => 'required|max:255',
+            'Preu_per_dia' => 'required|max:255',
+            'Deposit_ple' => 'required|max:255',
+            'Tipus_de_assegurança' => 'required|max:255',
 
         ]);
 

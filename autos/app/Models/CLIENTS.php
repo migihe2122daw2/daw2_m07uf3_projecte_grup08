@@ -7,23 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clients extends Model
 {
+    public $timestamps = false;
     use HasFactory;
-    use Enums;
+
     protected $fillable = [
         'DNI_client',
-        'Nom i cognoms',
+        'Nom_i_cognoms',
         'Edat',
         'Telefon',
         'Adreça',
         'Ciutat',
         'Pais',
         'Email',
-        'Número del permís de conducció',
-        'Punts del permís de conducció',
-        'Numero de tajeta',
-    ];
-    
-    protected $enumStatuses = [
-        'Tipus de tajeta' => ['Debit', 'Credit'],
+        'Número_del_permís_de_conducció',
+        'Punts_del_permís_de_conducció',
+        'Tipus_de_tajeta',
+        'Numero_de_tajeta',
     ];
 }

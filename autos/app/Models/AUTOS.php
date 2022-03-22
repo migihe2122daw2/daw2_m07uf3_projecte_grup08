@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Autos extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'Matricula_auto',
-        'Numero de bastidor',
+        'Numero_de_bastidor',
         'Marca',
         'Model',
         'Color',
-        'Numero de places',
-        'Numero de portes',
-        'Grandaria del maleter',
-        'Tipo de combustible',
+        'Numero_de_places',
+        'Numero_de_portes',
+        'Grandaria_del_maleter',
+        'Tipo_de_combustible',
     ];
 }

@@ -17,11 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('autos', 'AutosController::class');
-Route::resource('lloguers', 'LloguersController::class');
-Route::resource('clients', 'ClientsController::class');
-Route::resource('usuaris', 'ControladorUsuaris::class');
+Route::resource('lloguers', ControladorLloguers::class);
+Route::resource('autos', ControladorAutos::class);
+Route::resource('clients', ControladorClients::class);
+Route::resource('usuaris', ControladorUsuaris::class);
 
-Route::get('/usuaris', function(){
-    return view('indexUsuaris');
-});
+Route::post('createClient', 'ControladorClients@store');

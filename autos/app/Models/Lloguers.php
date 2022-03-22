@@ -7,20 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lloguers extends Model
 {
+    public $timestamps = false;
     use HasFactory;
-    use Enums;
+
     protected $fillable = [
         'DNI_client',
         'Matricula_auto',
         'Data_prestec',
         'Data_devolucio',
-        'Lloc de devolucio',
-        'Preu per dia',
-        'Deposit ple',
-        'Tipus de assegurança',
+        'Lloc_de_devolucio',
+        'Preu_per_dia',
+        'Deposit_ple',
+        'Tipus_de_assegurança',
     ];
 
-    protected $enumStatuses = [
-        'Tipus de assegurança' => ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia'],
-    ];
 }
