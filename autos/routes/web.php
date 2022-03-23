@@ -20,4 +20,10 @@ Route::get('/', function () {
 Route::resource('lloguers', ControladorLloguers::class);
 Route::resource('autos', ControladorAutos::class);
 Route::resource('clients', ControladorClients::class);
+<<<<<<< HEAD
 Route::resource('usuaris', ControladorUsuaris::class);
+=======
+Route::resource('usuaris', ControladorUsuaris::class);
+
+Route::post('createClient', 'ControladorClients@store');
+>>>>>>> 35b6c64827c5ce04be1fdd49411fffda514748c6

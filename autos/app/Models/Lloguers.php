@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lloguers extends Model
 {
+    public $timestamps = false;
     use HasFactory;
-    use Enums;
+
     protected $fillable = [
         'DNI_client',
         'Matricula_auto',
@@ -20,7 +21,4 @@ class Lloguers extends Model
         'Tipus_de_assegurança',
     ];
 
-    protected $enumStatuses = [
-        'Tipus de assegurança' => ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia'],
-    ];
 }

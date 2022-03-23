@@ -17,7 +17,7 @@ class ControladorAutos extends Controller
         //
 
         $autos = Autos::all();
-        return view('autos.index', compact('autos'));
+        return view('indexAutos', compact('autos'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ControladorAutos extends Controller
     {
         //
 
-        return view('autos');
+        return view('creaAutos');
     }
 
     /**
@@ -50,7 +50,11 @@ class ControladorAutos extends Controller
             'Color' => 'required|max:255',
             'Numero_de_places' => 'required|max:255',
             'Numero_de_portes' => 'required|max:255',
+<<<<<<< HEAD
             'Grandaria_del_maleter' => 'required|max:255',
+=======
+            'Grandari_del_maleter' => 'required|max:255',
+>>>>>>> 35b6c64827c5ce04be1fdd49411fffda514748c6
             'Tipo_de_combustible' => 'required',
             
         ]);
@@ -94,14 +98,14 @@ class ControladorAutos extends Controller
 
         $dades = $request->validate([
             'Matricula_auto' => 'required|unique:autos',
-            'Numero de bastidor' => 'required|max:10',
+            'Numero_de_bastidor' => 'required|max:10',
             'Marca' => 'required|max:255',
             'Model' => 'required|max:255',
             'Color' => 'required|max:255',
-            'Numero de places' => 'required|max:255',
-            'Numero de portes' => 'required|max:255',
-            'Grandaria del maleter' => 'required|max:255',
-            'Tipo de combustible' => 'required',
+            'Numero_de_places' => 'required|max:255',
+            'Numero_de_portes' => 'required|max:255',
+            'Grandari_del_maleter' => 'required|max:255',
+            'Tipo_de_combustible' => 'required',
             
         ]);
 

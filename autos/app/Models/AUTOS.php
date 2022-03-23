@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Autos extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'Matricula_auto',

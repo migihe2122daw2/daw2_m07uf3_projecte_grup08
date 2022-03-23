@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Clients;
+use App\Models\Lloguers;
 
 class ControladorLloguers extends Controller
 {
@@ -17,7 +17,7 @@ class ControladorLloguers extends Controller
         //
 
         $lloguers = Lloguers::all();
-        return view('lloguers.index', compact('lloguers'));
+        return view('indexLloguers', compact('lloguers'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ControladorLloguers extends Controller
     {
         //
 
-        return view('lloguers');
+        return view('creaLloguers');
     }
 
     /**
