@@ -14,10 +14,10 @@ class Lloguers extends Model
         'Matricula_auto',
         'Data_prestec',
         'Data_devolucio',
-        'Lloc de devolucio',
-        'Preu per dia',
-        'Deposit ple',
-        'Tipus de assegurança',
+        'Lloc_de_devolucio',
+        'Preu_per_dia',
+        'Deposit_ple',
+        'Tipus_de_assegurança',
     ];
 
     protected $enumStatuses = [

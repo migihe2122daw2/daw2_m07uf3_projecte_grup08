@@ -16,14 +16,14 @@ class CreateAutosTable extends Migration
         Schema::create('autos', function (Blueprint $table) {
             
             $table->string('Matricula_auto')->primary();
-            $table->integer('Numero de bastidor');
+            $table->integer('Numero_de_bastidor');
             $table->string('Marca');
             $table->string('Model');
             $table->string('Color');
-            $table->integer('Numero de places');
-            $table->integer('Numero de portes');
-            $table->float('Grandaria del maleter');
-            $table->enum('Tipo de combustible', ['Gasolina', 'Diesel', 'Electric']);
+            $table->integer('Numero_de_places');
+            $table->integer('Numero_de_portes');
+            $table->float('Grandaria_del_maleter');
+            $table->enum('Tipo_de_combustible', ['Gasolina', 'Diesel', 'Electric']);
 
         });
     }

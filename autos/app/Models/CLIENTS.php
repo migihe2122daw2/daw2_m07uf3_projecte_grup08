@@ -11,16 +11,16 @@ class Clients extends Model
     use Enums;
     protected $fillable = [
         'DNI_client',
-        'Nom i cognoms',
+        'Nom_i_cognoms',
         'Edat',
         'Telefon',
         'Adreça',
         'Ciutat',
         'Pais',
         'Email',
-        'Número del permís de conducció',
-        'Punts del permís de conducció',
-        'Numero de tajeta',
+        'Número_del_permís_de_conducció',
+        'Punts_del_permís_de_conducció',
+        'Numero_de_tajeta',
     ];
     
     protected $enumStatuses = [

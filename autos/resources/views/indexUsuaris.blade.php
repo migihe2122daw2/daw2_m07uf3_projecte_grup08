@@ -2,6 +2,10 @@
 
 @section('content')
 
+<?php
+use App\Models\Usuaris;
+$usuaris = Usuaris::all();
+?>
 <h1>Llista d'usuaris</h1>
 <div class="mt-5">
   @if(session()->get('success'))
@@ -12,7 +16,6 @@
   <table class="table">
     <thead>
         <tr class="table-primary">
-          <td># ID</td>
           <td>Nom i cognoms</td>
           <td>Email</td>
           <td>Contrasenya</td>
@@ -24,13 +27,12 @@
     <tbody>
       @foreach($usuaris as $usu)
       <tr>
-        <td>{{$usu->id}}</td>
-        <td>{{$usu->nom_i_cognoms}}</td>
-        <td>{{$usu->email}}</td>
-        <td>{{$usu->contrasenya}}</td>
-        <td>{{$usu->tipus}}</td>
-        <td>{{$usu->darrera_hora_d_entrada}}</td>
-        <td>{{$usu->darrera_hora_de_sortida}}</td>
+        <td>{{$usu->Nom_i_cognoms}}</td>
+        <td>{{$usu->Email}}</td>
+        <td>{{$usu->Contrasenya}}</td>
+        <td>{{$usu->Tipus_de_usuari}}</td>
+        <td>{{$usu->Darrera_hora_de_entrada}}</td>
+        <td>{{$usu->Darrera_hora_de_sortida}}</td>
         <td>
           <a href="{{ route('usuaris.edit',$usu->id)}}" class="btn btn-primary">Editar</a>
         </td>

@@ -14,12 +14,12 @@ class CreateUsuarisTable extends Migration
     public function up()
     {
         Schema::create('usuaris', function (Blueprint $table) {
-            $table->string('Nom i cognoms');
+            $table->string('Nom_i_cognoms');
             $table->string('Email')->primary();
             $table->string('Contrasenya');
-            $table->enum('Tipus de usuari', ['Treballador', 'Cap de departament']);
-            $table->date('Darrera hora d\'entrada');
-            $table->date('Darrera hora de sortida');
+            $table->enum('Tipus_de_usuari', ['Treballador', 'Cap de departament']);
+            $table->time('Darrera_hora_de_entrada');
+            $table->time('Darrera_hora_de_sortida');
         });
     }
 

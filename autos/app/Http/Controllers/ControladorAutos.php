@@ -44,14 +44,14 @@ class ControladorAutos extends Controller
 
         $nouAuto = $request->validate([
             'Matricula_auto' => 'required|unique:autos',
-            'Numero de bastidor' => 'required|max:10',
+            'Numero_de_bastidor' => 'required|max:10',
             'Marca' => 'required|max:255',
             'Model' => 'required|max:255',
             'Color' => 'required|max:255',
-            'Numero de places' => 'required|max:255',
-            'Numero de portes' => 'required|max:255',
-            'Grandaria del maleter' => 'required|max:255',
-            'Tipo de combustible' => 'required',
+            'Numero_de_places' => 'required|max:255',
+            'Numero_de_portes' => 'required|max:255',
+            'Grandaria_del_maleter' => 'required|max:255',
+            'Tipo_de_combustible' => 'required',
             
         ]);
     }

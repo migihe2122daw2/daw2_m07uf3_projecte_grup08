@@ -20,10 +20,10 @@ class CreateLloguersTable extends Migration
             $table->foreign('Matricula_auto')->references('Matricula_auto')->on('autos');
             $table->date('Data_prestec');
             $table->date('Data_devolucio');
-            $table->string('Lloc de devolucio');
-            $table->float('Preu per dia');
-            $table->boolean('Deposit ple');
-            $table->enum('Tipus de assegurança', ['Franquícia fins a 1000 Euros', 'Franquíca fins 500 Euros', 'Sense franquícia']);
+            $table->string('Lloc_de_devolucio');
+            $table->float('Preu_per_dia');
+            $table->boolean('Deposit_ple');
+            $table->enum('Tipus_de_assegurança', ['Franquícia fins a 1000 Euros', 'Franquíca fins 500 Euros', 'Sense franquícia']);
             $table->primary(['DNI_client', 'Matricula_auto']);
         });
     }

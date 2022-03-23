@@ -47,10 +47,10 @@ class ControladorLloguers extends Controller
             'Matricula_auto' => 'required|max:10',
             'Data_prestec' => 'required|max:10',
             'Data_devolucio' => 'required|max:10',
-            'Lloc de devolucio' => 'required|max:255',
-            'Preu per dia' => 'required|max:255',
-            'Deposit ple' => 'required|max:255',
-            'Tipus de assegurança' => 'required|max:255',
+            'Lloc_de_devolucio' => 'required|max:255',
+            'Preu_per_dia' => 'required|max:255',
+            'Deposit_ple' => 'required|max:255',
+            'Tipus_de_assegurança' => 'required|max:255',
 
         ]);
     }
@@ -96,10 +96,10 @@ class ControladorLloguers extends Controller
             'Matricula_auto' => 'required|max:10',
             'Data_prestec' => 'required|max:10',
             'Data_devolucio' => 'required|max:10',
-            'Lloc de devolucio' => 'required|max:255',
-            'Preu per dia' => 'required|max:255',
-            'Deposit ple' => 'required|max:255',
-            'Tipus de assegurança' => 'required|max:255',
+            'Lloc_de_devolucio' => 'required|max:255',
+            'Preu_per_dia' => 'required|max:255',
+            'Deposit_ple' => 'required|max:255',
+            'Tipus_de_assegurança' => 'required|max:255',
 
         ]);
 
