@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Lloguers extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'ID_lloguer';
+    public $incrementing = false;
     use HasFactory;
 
     protected $fillable = [

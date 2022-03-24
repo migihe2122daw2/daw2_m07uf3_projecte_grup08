@@ -82,7 +82,7 @@ class ControladorClients extends Controller
         //
 
         $client = Clients::findOrFail($id);
-        return view('ActualitzaClients', compact('client'));
+        return view('modificaClients', compact('client'));
     }
 
     /**
@@ -96,8 +96,9 @@ class ControladorClients extends Controller
     {
         //
 
-        $dades = $request->validate([
-            'DNI_client' => 'required|unique:clients|max:9',
+        // El dni no debe se unico
+        $dadesClient = $request->validate([
+            'DNI_client' => 'required|max:9',
             'Nom_i_cognoms' => 'required|max:50',
             'Edat' => 'required|max:2',
             'Telefon' => 'required|max:9',
@@ -111,7 +112,26 @@ class ControladorClients extends Controller
             'Numero_de_tajeta' => 'required|max:16',
         ]);
 
-        Clients::where('id', $id)->update($dades);
+        Clients::where('DNI_client', $id)->update($dadesClient);
+
+        // Si existeix un lloguer amb aquest client, actualitzar les dades del client a la taula lloguers
+        $lloguer = \App\Models\Lloguers::where('DNI_client', $id)->first();
+        if ($lloguer) {
+            $lloguer->DNI_client = $dades['DNI_client'];
+            $lloguer->Nom_i_cognoms = $dades['Nom_i_cognoms'];
+            $lloguer->Edat = $dades['Edat'];
+            $lloguer->Telefon = $dades['Telefon'];
+            $lloguer->Adreça = $dades['Adreça'];
+            $lloguer->Ciutat = $dades['Ciutat'];
+            $lloguer->Pais = $dades['Pais'];
+            $lloguer->Email = $dades['Email'];
+            $lloguer->Número_del_permís_de_conducció = $dades['Número_del_permís_de_conducció'];
+            $lloguer->Punts_del_permís_de_conducció = $dades['Punts_del_permís_de_conducció'];
+            $lloguer->Tipus_de_tajeta = $dades['Tipus_de_tajeta'];
+            $lloguer->Numero_de_tajeta = $dades['Numero_de_tajeta'];
+            $lloguer->save();
+        }
+
         return redirect('/clients')->with('completed', 'Client actualitzat correctament');
     }
 
@@ -127,6 +147,10 @@ class ControladorClients extends Controller
 
         $clients = Clients::findOrFail($id);
         $clients->delete();
+        $lloguers = Lloguers::where('id_client', $id)->get();
+        foreach ($lloguers as $lloguer) {
+            $lloguer->delete();
+        }
         return redirect('/clients')->with('completed', 'Client eliminat correctament');
     }
 }

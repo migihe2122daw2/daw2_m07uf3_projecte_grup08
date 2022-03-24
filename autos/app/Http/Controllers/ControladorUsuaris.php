@@ -71,12 +71,12 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($Email)
+    public function edit($id)
     {
         //
 
-        $usuaris = Usuaris::findOrFail($Email);
-        return view('ActualitzaUsuaris', compact('usuaris'));
+        $usuaris = Usuaris::findOrFail($id);
+        return view('modificaUsuaris', compact('usuaris'));
 
     }
 
@@ -91,17 +91,20 @@ class ControladorUsuaris extends Controller
     {
         //
 
-        $dades = $request->validate([
-            'Nom_i_cognoms' => 'required|max:50',
+        $usuaris = Usuaris::findOrFail($id);
+        // Lee los datos del formulario
+        $datos = $request->validate([
+            'Nom_i_cognoms' => 'required|string|max:50',
             'Email' => 'required|max:50',
             'Contrasenya' => 'required|max:50',
             'Tipus_de_usuari' => 'required|max:50',
-            'Darrera_hora_de_entrada' => 'required|date_format:H:i',
-            'Darrera_hora_de_sortida' => 'required|date_format:H:i',
+            'Darrera_hora_de_entrada' => 'required|date_format:H:i:s',
+            'Darrera_hora_de_sortida' => 'required|date_format:H:i:s',
         ]);
 
-        Usuaris::where('id', $id)->update($dades);
-        return redirect('/usuaris')->with('completed', 'Usuari actualitzat correctament');
+        $usuaris->update($datos);
+        return redirect('/usuaris')->with('Mensaje', 'Usuari modificat correctament');
+
     }
 
     /**

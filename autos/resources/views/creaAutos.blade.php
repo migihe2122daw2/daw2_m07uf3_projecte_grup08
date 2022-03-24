@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="Color">Color</label>
-                <input type="text" class="form-control" name="Color" id="Color" placeholder="Matricula">
+                <input type="text" class="form-control" name="Color" id="Color" placeholder="Color">
             </div>
             <div class="form-group">
                 <label for="Numero_de_places">Numero_de_places</label>

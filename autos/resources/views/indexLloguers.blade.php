@@ -14,7 +14,7 @@ $lloguers = Lloguers::all();
         {{ session()->get('success') }}  
         </div>
     @endif
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr class="table-primary">
             <td>DNI client</td>

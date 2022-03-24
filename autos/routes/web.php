@@ -22,4 +22,3 @@ Route::resource('autos', ControladorAutos::class);
 Route::resource('clients', ControladorClients::class);
 Route::resource('usuaris', ControladorUsuaris::class);
 
-Route::post('createClient', 'ControladorClients@store');

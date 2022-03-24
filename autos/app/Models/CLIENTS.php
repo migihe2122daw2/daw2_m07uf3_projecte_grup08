@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Clients extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'DNI_client';
+    public $incrementing = false;
     use HasFactory;
 
     protected $fillable = [

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Autos extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'Matricula_auto';
+    public $incrementing = false;
     use HasFactory;
     protected $fillable = [
         'Matricula_auto',

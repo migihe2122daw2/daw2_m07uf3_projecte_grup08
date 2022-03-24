@@ -45,8 +45,8 @@ class ControladorLloguers extends Controller
         $nouLloguer = $request->validate([
             'DNI_client' => 'required|unique:lloguers|max:9',
             'Matricula_auto' => 'required|max:10',
-            'Data_prestec' => 'required|max:10',
-            'Data_devolucio' => 'required|max:10',
+            'Data_prestec' => 'required|date|max:10',
+            'Data_devolucio' => 'required|date|max:10',
             'Lloc_de_devolucio' => 'required|max:255',
             'Preu_per_dia' => 'required|max:255',
             'Deposit_ple' => 'required|max:255',

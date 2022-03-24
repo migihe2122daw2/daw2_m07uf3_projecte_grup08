@@ -11,7 +11,7 @@
     </div>
 
     <div class="mx-3">
-        <form action="{{ url('createLloguer') }}" method="post">
+        <form action="{{ route('lloguers.store') }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="DNI_client">DNI del client</label>
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="Diposit_ple">Dipòsit plè</label>
-                <input type="text" class="form-control" name="Diposit_ple" id="diposit_ple" placeholder="Dipòsit plè">
+                <input type="checkbox" name="Diposit_ple" id="diposit_ple">
             </div>
             <div class="form-group">
                 <label for="Tipus_de_assegurança">Tipus d'assegurança</label>

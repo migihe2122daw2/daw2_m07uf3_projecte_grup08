@@ -79,7 +79,7 @@ class ControladorAutos extends Controller
         //
 
         $auto = Autos::findOrFail($id);
-        return view('ActualitzaAutos', compact('auto'));
+        return view('modificaAutos', compact('auto'));
     }
 
     /**
@@ -93,8 +93,8 @@ class ControladorAutos extends Controller
     {
         //
 
-        $dades = $request->validate([
-            'Matricula_auto' => 'required|unique:autos',
+        $dadesAuto = $request->validate([
+            'Matricula_auto' => 'required|max:10',
             'Numero_de_bastidor' => 'required|max:10',
             'Marca' => 'required|max:255',
             'Model' => 'required|max:255',
@@ -102,11 +102,27 @@ class ControladorAutos extends Controller
             'Numero_de_places' => 'required|max:255',
             'Numero_de_portes' => 'required|max:255',
             'Grandaria_del_maleter' => 'required|max:255',
-            'Tipo_de_combustible' => 'required',
-            
+            'Tipo_de_combustible' => 'required',  
         ]);
 
-        Autos::where('id', $id)->update($dades);
+        Autos::where('Matricula_auto', $id)->update($dadesAuto);
+
+        // Si existeix un lloguer amb aquest auto, actualitzar les dades del auto a la taula lloguers
+        $lloguer = \App\Models\Lloguers::where('Matricula_auto', $id)->first();
+        if ($lloguer) {
+            $lloguer->Matricula_auto = $dades['Matricula_auto'];
+            $lloguer->Numero_de_bastidor = $dades['Numero_de_bastidor'];
+            $lloguer->Marca = $dades['Marca'];
+            $lloguer->Model = $dades['Model'];
+            $lloguer->Color = $dades['Color'];
+            $lloguer->Numero_de_places = $dades['Numero_de_places'];
+            $lloguer->Numero_de_portes = $dades['Numero_de_portes'];
+            $lloguer->Grandaria_del_maleter = $dades['Grandaria_del_maleter'];
+            $lloguer->Tipo_de_combustible = $dades['Tipo_de_combustible'];
+            $lloguer->save();
+
+        }
+    
         return redirect('/autos')->with('completed', 'Auto actualitzat correctament');
     }
 
@@ -121,6 +137,10 @@ class ControladorAutos extends Controller
         //
         $autos = Autos::findOrFail($id);
         $autos->delete();
+        $lloguers = Lloguers::where('id_auto', $id)->get();
+        foreach ($lloguers as $lloguer) {
+            $lloguer->delete();
+        }
         return redirect('/autos')->with('completed', 'Auto eliminat correctament');
     }
 }
