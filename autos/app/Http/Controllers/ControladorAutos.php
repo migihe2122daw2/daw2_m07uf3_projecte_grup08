@@ -101,7 +101,11 @@ class ControladorAutos extends Controller
             'Color' => 'required|max:255',
             'Numero_de_places' => 'required|max:255',
             'Numero_de_portes' => 'required|max:255',
+<<<<<<< HEAD
             'Grandaria_del_maleter' => 'required|max:255',
+=======
+            'Grandari_del_maleter' => 'required|max:255',
+>>>>>>> 35b6c64827c5ce04be1fdd49411fffda514748c6
             'Tipo_de_combustible' => 'required',
             
         ]);
