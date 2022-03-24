@@ -50,4 +50,5 @@ $usuaris = Usuaris::all();
   </table>
 <div>
 <br><a href="{{ url('usuaris/create') }}" class="btn btn-primary">Afegir un nou usuari</a>
+<a href="{{ url('/')}}" class="btn btn-warning">Tornar al menu</a>
 @endsection

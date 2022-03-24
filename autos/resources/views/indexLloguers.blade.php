@@ -55,4 +55,5 @@ $lloguers = Lloguers::all();
     </table>
 </div>
 <br><a href="{{ url('lloguers/create') }}" class="btn btn-primary">Crear un nou lloguer</a>
+<a href="{{ url('/')}}" class="btn btn-warning">Tornar al menu</a>
 @endsection

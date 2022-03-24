@@ -62,5 +62,6 @@ $clients = Clients::all();
         </tbody>
     </table>
 <div>
-<br><a href="{{ url('clients/create') }}">Afegir un nou client</a>
+<br><a href="{{ url('clients/create') }}" class="btn btn-primary">Afegir un nou client</a>
+<a href="{{ url('/')}}" class="btn btn-warning">Tornar al menu</a>
 @endsection

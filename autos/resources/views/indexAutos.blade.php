@@ -53,5 +53,6 @@ $autos = Autos::all();
         @endforeach
   </table>
 <div>
-<br><a href="{{ url('autos/create') }}">Afegir un cotxe</a>
+<br><a href="{{ url('autos/create') }}" class="btn btn-primary">Afegir un cotxe</a>
+<a href="{{ url('/')}}" class="btn btn-warning">Tornar al menu</a>
 @endsection
