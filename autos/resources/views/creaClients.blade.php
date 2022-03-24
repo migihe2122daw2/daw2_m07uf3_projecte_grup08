@@ -9,43 +9,58 @@
     </div>
 
     <div class="mx-3">
-        <form action="{{ url('createClient') }}" method="post">
+        <form action="{{ route('clients.store') }}" method="post">
             @csrf
             <div class="form-group">
-                <label for="Nom">Nom</label>
-                <input type="text" class="form-control" name="Nom" id="nom" placeholder="Nom">
+                <label for="DNI_client">DNI_client</label>
+                <input type="text" class="form-control" name="DNI_client" id="DNI_client" placeholder="DNI_client">
             </div>
             <div class="form-group">
-                <label for="Cognom">Cognom</label>
-                <input type="text" class="form-control" name="Cognom" id="cognom" placeholder="Cognom">
+                <label for="Nom_i_cognoms">Nom_i_cognoms</label>
+                <input type="text" class="form-control" name="Nom_i_cognoms" id="Nom_i_cognoms" placeholder="Nom_i_cognoms">
             </div>
             <div class="form-group">
-                <label for="DNI">DNI</label>
-                <input type="text" class="form-control" name="DNI" id="dni" placeholder="DNI">
+                <label for="Edat">Edat</label>
+                <input type="number" class="form-control" name="Edat" id="Edat" placeholder="Edat">
             </div>
             <div class="form-group">
                 <label for="Telefon">Telefon</label>
-                <input type="text" class="form-control" name="Telefon" id="telefon" placeholder="Telefon">
+                <input type="number" class="form-control" name="Telefon" id="Telefon" placeholder="Telefon">
+            </div>
+            <div class="form-group">
+                <label for="Adreça">Adreça</label>
+                <input type="text" class="form-control" name="Adreça" id="Adreça" placeholder="Adreça">
+            </div>
+            <div class="form-group">
+                <label for="Ciutat">Ciutat</label>
+                <input type="text" class="form-control" name="Ciutat" id="Ciutat" placeholder="Ciutat">
+            </div>
+            <div class="form-group">
+                <label for="Pais">Pais</label>
+                <input type="text" class="form-control" name="Pais" id="Pais" placeholder="Pais">
             </div>
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" class="form-control" name="Email" id="email" placeholder="Email">
+                <input type="email" class="form-control" name="Email" id="Email" placeholder="Email">
             </div>
             <div class="form-group">
-                <label for="Adreca">Adreça</label>
-                <input type="text" class="form-control" name="Adreca" id="adreca" placeholder="Adreça">
+                <label for="Número_del_permís_de_conducció">Número_del_permís_de_conducció</label>
+                <input type="text" class="form-control" name="Número_del_permís_de_conducció" id="Número_del_permís_de_conducció" placeholder="Número_del_permís_de_conducció">
             </div>
             <div class="form-group">
-                <label for="Poblacio">Població</label>
-                <input type="text" class="form-control" name="Poblacio" id="poblacio" placeholder="Població">
+                <label for="Punts_del_permís_de_conducció">Punts_del_permís_de_conducció</label>
+                <input type="number" class="form-control" name="Punts_del_permís_de_conducció" id="Punts_del_permís_de_conducció" placeholder="Punts_del_permís_de_conducció">
             </div>
             <div class="form-group">
-                <label for="Provincia">Provincia</label>
-                <input type="text" class="form-control" name="Provincia" id="provincia" placeholder="Provincia">
+            <label for="Tipus_de_tajeta">Tipus de Tarjeta</label>
+            <select class="form-control" name="Tipus_de_tajeta" id="Tipus_de_tajeta">
+                <option value="Debit">Debit</option>
+                <option value="Credit">Credit</option>
+            </select>
             </div>
             <div class="form-group">
-                <label for="Codi_postal">Codi postal</label>
-                <input type="text" class="form-control" name="Codi_postal" id="codi_postal" placeholder="Codi postal">
+                <label for="Numero_de_tajeta">Numero_de_tajeta</label>
+                <input type="number" class="form-control" name="Numero_de_tajeta" id="Numero_de_tajeta" placeholder="Numero_de_tajeta">
             </div>
             <button type="submit" class="btn btn-primary">Crear</button>
         </form>

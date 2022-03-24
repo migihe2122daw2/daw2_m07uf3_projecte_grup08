@@ -12,10 +12,6 @@ class Usuaris extends Model
     public $incrementing = false;
 
     use HasFactory;
-<<<<<<< HEAD
-    public $timestamps = false;
-=======
->>>>>>> 35b6c64827c5ce04be1fdd49411fffda514748c6
     protected $fillable = [
         'Nom_i_cognoms',
         'Email',
@@ -24,9 +20,5 @@ class Usuaris extends Model
         'Darrera_hora_de_entrada',
         'Darrera_hora_de_sortida',
     ];
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> 35b6c64827c5ce04be1fdd49411fffda514748c6

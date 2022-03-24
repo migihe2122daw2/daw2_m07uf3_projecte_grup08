@@ -56,6 +56,8 @@ class ControladorClients extends Controller
             'Tipus_de_tajeta' => 'required|max:50',
             'Numero_de_tajeta' => 'required|max:16',
         ]);
+        $Clients = Clients::create($nouClient);
+        return redirect('/clients')->with('Mensaje', 'Client creat correctament');
     }
 
     /**
