@@ -47,8 +47,8 @@
                 <input type="number" class="form-control" name="Deposit_ple" value="{{$lloguer->Deposit_ple}}">
             </div>
             <div class="form-group">
-                <label for="Tipus_de_assegurança">Tipus de assegurança</label>
-                <input type="text" class="form-control" name="Tipus_de_assegurança" value="{{$lloguer->Tipus_de_assegurança}}">
+                <label for="Tipus_de_asseguranca">Tipus de asseguranca</label>
+                <input type="text" class="form-control" name="Tipus_de_asseguranca" value="{{$lloguer->Tipus_de_asseguranca}}">
             </div>
 
             <button type="submit" class="btn btn-primary">Modifica</button>

@@ -20,7 +20,7 @@ class Lloguers extends Model
         'Lloc_de_devolucio',
         'Preu_per_dia',
         'Deposit_ple',
-        'Tipus_de_assegurança',
+        'Tipus_de_asseguranca',
     ];
 
 }

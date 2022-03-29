@@ -50,9 +50,10 @@ class ControladorLloguers extends Controller
             'Lloc_de_devolucio' => 'required|max:255',
             'Preu_per_dia' => 'required|max:255',
             'Deposit_ple' => 'required|max:255',
-            'Tipus_de_assegurança' => 'required|max:255',
-
+            'Tipus_de_asseguranca' => 'required|max:255',
         ]);
+        $lloguers = Lloguers::create($nouLloguer);
+        return redirect('/lloguers')->with('Mensaje', 'Lloguer creat correctament');
     }
 
     /**
@@ -99,7 +100,7 @@ class ControladorLloguers extends Controller
             'Lloc_de_devolucio' => 'required|max:255',
             'Preu_per_dia' => 'required|max:255',
             'Deposit_ple' => 'required|max:255',
-            'Tipus_de_assegurança' => 'required|max:255',
+            'Tipus_de_asseguranca' => 'required|max:255',
 
         ]);
 

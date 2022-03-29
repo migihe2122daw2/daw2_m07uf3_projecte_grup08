@@ -24,7 +24,7 @@ $lloguers = Lloguers::all();
             <td>Lloc de devolucio</td>
             <td>Preu per dia</td>
             <td>Deposit ple</td>
-            <td>Tipus de assegurança</td>
+            <td>Tipus de asseguranca</td>
             <td colspan="2">Actions</td>
             </tr>
         </thead>
@@ -38,7 +38,7 @@ $lloguers = Lloguers::all();
                 <td>{{$lloguer->Lloc_de_devolucio}}</td>
                 <td>{{$lloguer->Preu_per_dia}}</td>
                 <td>{{$lloguer->Deposit_ple}}</td>
-                <td>{{$lloguer->Tipus_de_assegurança}}</td>
+                <td>{{$lloguer->Tipus_de_asseguranca}}</td>
                 <td>
                     <a href="{{ route('lloguers.edit',$lloguer->DNI_client)}}" class="btn btn-primary">Edit</a>
                 </td>
