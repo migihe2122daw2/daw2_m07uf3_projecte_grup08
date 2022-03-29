@@ -21,8 +21,8 @@
             <input type="email" class="form-control" name="Email" id="email" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="Contrasenya">Contrasenya</label>
-            <input type="password" class="form-control" name="Contrasenya" id="contrasenya" placeholder="Contrasenya">
+            <label for="password">Contrasenya</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Contrasenya">
         </div>
         <div class="form-group">
             <label for="Tipus_de_usuari">Tipus</label>

@@ -16,7 +16,7 @@ class CreateUsuarisTable extends Migration
         Schema::create('usuaris', function (Blueprint $table) {
             $table->string('Nom_i_cognoms');
             $table->string('Email')->primary();
-            $table->string('Contrasenya');
+            $table->string('password');
             $table->enum('Tipus_de_usuari', ['Treballador', 'Cap de departament']);
             $table->time('Darrera_hora_de_entrada');
             $table->time('Darrera_hora_de_sortida');

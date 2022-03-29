@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Models;
-use App\Traits\Enums;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Usuaris extends Model
+class Usuaris extends Authenticatable
 {
+
+    use HasApiTokens, HasFactory, Notifiable;
+
     public $timestamps = false;
     protected $primaryKey = 'Email';
     public $incrementing = false;
@@ -15,10 +20,23 @@ class Usuaris extends Model
     protected $fillable = [
         'Nom_i_cognoms',
         'Email',
-        'Contrasenya',
+        'password',
         'Tipus_de_usuari',
         'Darrera_hora_de_entrada',
         'Darrera_hora_de_sortida',
     ];
+
+    protected $hidden = [
+        'Contrasenya',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+  
+
+    
 
 }

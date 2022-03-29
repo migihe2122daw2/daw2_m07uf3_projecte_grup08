@@ -23,11 +23,11 @@
             </div>
             <div class="form-group">
                 <label for="Data_prestec">Data de prestec</label>
-                <input type="text" class="form-control" name="Data_prestec" id="data_prestec" placeholder="Data de prestec">
+                <input type="date" class="form-control" name="Data_prestec" id="data_prestec" placeholder="Data de prestec">
             </div>
             <div class="form-group">
                 <label for="Data_devolucio">Data de devolució</label>
-                <input type="text" class="form-control" name="Data_devolucio" id="data_devolucio" placeholder="Data de devolució">
+                <input type="date" class="form-control" name="Data_devolucio" id="data_devolucio" placeholder="Data de devolució">
             </div>
             <div class="form-group">
                 <label for="Lloc_de_devolucio">Lloc de devolució</label>

@@ -8,7 +8,7 @@ $autos = Autos::all();
 ?>
 
 <h1>Llista de autos </h1>
-<div class="mt-5">
+<div class="mt-5 ml-5 mr-5">
   @if(session()->get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
@@ -48,6 +48,8 @@ $autos = Autos::all();
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
+                <!-- Boton para generar un pdf -->
+                <a href="{{ URL::to('autos/pdf') }}" class="btn btn-primary">PDF</a>
             </td>
         </tr>
         @endforeach
@@ -55,4 +57,3 @@ $autos = Autos::all();
 <div>
 <br><a href="{{ url('autos/create') }}" class="btn btn-primary">Afegir un cotxe</a>
 <a href="{{ url('/')}}" class="btn btn-warning">Tornar al menu</a>
-@endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Autos;
+use PDF;
 
 class ControladorAutos extends Controller
 {
@@ -142,5 +143,20 @@ class ControladorAutos extends Controller
             $lloguer->delete();
         }
         return redirect('/autos')->with('completed', 'Auto eliminat correctament');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function pdf(){
+        // Recuperar todos los autos de la base de datos
+        $autos = Autos::all();
+        view()->share('autos', $autos);
+        $pdf = \PDF::loadView('indexAutos');
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('autos.pdf');
     }
 }

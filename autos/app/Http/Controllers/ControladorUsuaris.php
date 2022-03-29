@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuaris;
+use Illuminate\Support\Facades\Hash;
 
 class ControladorUsuaris extends Controller
 {
@@ -44,13 +45,22 @@ class ControladorUsuaris extends Controller
         $nouUsuari = $request->validate([
             'Nom_i_cognoms' => 'required|string|max:50',
             'Email' => 'required|max:50',
-            'Contrasenya' => 'required|max:50',
+            'password' => 'required|max:50',
             'Tipus_de_usuari' => 'required|max:50',
             'Darrera_hora_de_entrada' => 'required|date_format:H:i',
             'Darrera_hora_de_sortida' => 'required|date_format:H:i',
         ]);
 
-        $usuari = Usuaris::create($nouUsuari);
+        // Guardem el nou usuari a la base de dades utilitzant seeders
+        Usuaris::create([
+            'Nom_i_cognoms' => $nouUsuari['Nom_i_cognoms'],
+            'Email' => $nouUsuari['Email'],
+            'password' => Hash::make($nouUsuari['password']),
+            'Tipus_de_usuari' => $nouUsuari['Tipus_de_usuari'],
+            'Darrera_hora_de_entrada' => $nouUsuari['Darrera_hora_de_entrada'],
+            'Darrera_hora_de_sortida' => $nouUsuari['Darrera_hora_de_sortida'],
+        ]);
+        
         return redirect('/usuaris')->with('Mensaje', 'Usuari creat correctament');
     }
 
@@ -96,7 +106,7 @@ class ControladorUsuaris extends Controller
         $datos = $request->validate([
             'Nom_i_cognoms' => 'required|string|max:50',
             'Email' => 'required|max:50',
-            'Contrasenya' => 'required|max:50',
+            'password' => 'required|max:50',
             'Tipus_de_usuari' => 'required|max:50',
             'Darrera_hora_de_entrada' => 'required|date_format:H:i:s',
             'Darrera_hora_de_sortida' => 'required|date_format:H:i:s',

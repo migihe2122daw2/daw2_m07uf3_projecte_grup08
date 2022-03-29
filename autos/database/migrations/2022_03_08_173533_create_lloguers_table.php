@@ -15,9 +15,9 @@ class CreateLloguersTable extends Migration
     {
         Schema::create('lloguers', function (Blueprint $table) {
             $table->string('DNI_client');
-            $table->foreign('DNI_client')->references('DNI_client')->on('clients');
+            $table->foreign('DNI_client')->references('DNI_client')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('Matricula_auto');
-            $table->foreign('Matricula_auto')->references('Matricula_auto')->on('autos');
+            $table->foreign('Matricula_auto')->references('Matricula_auto')->on('autos')->onDelete('cascade')->onUpdate('cascade');
             $table->date('Data_prestec');
             $table->date('Data_devolucio');
             $table->string('Lloc_de_devolucio');

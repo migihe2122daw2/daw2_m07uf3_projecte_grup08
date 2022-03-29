@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,55 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('loginWelcome');
 });
+
+Route::get('/loginAdmin', function () {
+    return view('loginAdmin');
+})->name('loginAdmin');
+Route::post('/loginAdmin', function (Request $request) {
+    
+    $credentials = $request->validate([
+        'Email' => 'required|email',
+        'password' => 'required'
+    ]);
+    
+    if (Auth::attempt($credentials)) {
+    
+        if (Auth::user()->Tipus_de_usuari == 'Cap de departament') {
+        
+            Session::put('username', Auth::user()->Nom_i_cognoms);
+            return redirect()->intended('/admin');
+        }
+
+        // Si no, redirigim a la vista de usuari
+        else {
+            return redirect()->intended('/treballador');
+        }
+    }
+    
+    return back()->withErrors([
+        'Email' => 'Email o contrasenya incorrectes.',
+    ]);
+    
+});
+
+Route::get('/admin', function () {
+    return view('indexAdmin');
+})->name('admin');
+
+Route::get('/treballador', function () {
+    return view('indexTreballador');
+})->name('treballador');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
+
+Route::get('/autos/pdf', 'ControladorAutos@pdf')->name('autos.pdf');
+
+
 
 Route::resource('lloguers', ControladorLloguers::class);
 Route::resource('autos', ControladorAutos::class);
