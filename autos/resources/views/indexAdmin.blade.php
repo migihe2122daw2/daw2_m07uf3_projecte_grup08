@@ -5,7 +5,7 @@
 if (Auth::check()) {
     echo "Hola " . Auth::user()->Nom_i_cognoms;
 } else {
-    url('/');
+    
 }
 ?>
 

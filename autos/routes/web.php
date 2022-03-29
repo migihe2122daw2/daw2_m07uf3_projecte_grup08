@@ -61,7 +61,7 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::get('/autos/pdf', 'ControladorAutos@pdf')->name('autos.pdf');
+Route::get('/autos/{id}/pdf', 'ControladorAutos@pdf')->name('autos.pdf');
 
 
 

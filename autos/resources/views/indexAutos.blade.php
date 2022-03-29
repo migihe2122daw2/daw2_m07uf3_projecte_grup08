@@ -49,7 +49,7 @@ $autos = Autos::all();
                   <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
                 <!-- Boton para generar un pdf -->
-                <a href="{{ URL::to('autos/pdf') }}" class="btn btn-primary">PDF</a>
+                <a href="{{ route('autos.pdf',$auto->Matricula_auto) }}" class="btn btn-primary">PDF</a>
             </td>
         </tr>
         @endforeach

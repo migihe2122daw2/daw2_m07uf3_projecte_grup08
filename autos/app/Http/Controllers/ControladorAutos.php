@@ -151,12 +151,15 @@ class ControladorAutos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function pdf(){
-        // Recuperar todos los autos de la base de datos
-        $autos = Autos::all();
-        view()->share('autos', $autos);
-        $pdf = \PDF::loadView('indexAutos');
-        $pdf->setPaper('A4', 'landscape');
-        return $pdf->download('autos.pdf');
+    public function pdf($id){
+        $autos = Autos::findOrFail($id);
+        if ($autos) {
+        $matricula = $autos->Matricula_auto;
+            $pdf = PDF::loadView('pdfAutos', compact('matricula'));
+            $pdf ->setPaper('A4', 'landscape');
+            return $pdf->download('autos.pdf');
+        }
+        
+        return view('pdf', compact('autos'));
     }
 }
