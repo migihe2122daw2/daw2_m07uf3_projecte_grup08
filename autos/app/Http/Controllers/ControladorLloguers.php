@@ -41,7 +41,6 @@ class ControladorLloguers extends Controller
     public function store(Request $request)
     {
         //
-
         $nouLloguer = $request->validate([
             'DNI_client' => 'required|unique:lloguers|max:9',
             'Matricula_auto' => 'required|max:10',
@@ -78,7 +77,7 @@ class ControladorLloguers extends Controller
         //
 
         $lloguer = Lloguers::findOrFail($id);
-        return view('ActualitzaLloguers', compact('lloguer'));
+        return view('modificaLloguers', compact('lloguer'));
     }
 
     /**
