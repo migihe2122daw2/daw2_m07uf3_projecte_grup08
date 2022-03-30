@@ -2,11 +2,7 @@
 
 // Si hay sessió iniciada, mostrar la pgina, si no no
 
-if (Auth::check()) {
-    echo "Hola " . Auth::user()->Nom_i_cognoms;
-} else {
-    
-}
+
 ?>
 
 <!DOCTYPE html>

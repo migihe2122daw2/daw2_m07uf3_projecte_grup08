@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="Tipus_de_asseguranca">Tipus de asseguranca</label>
-                <input type="text" class="form-control" name="Tipus_de_asseguranca" value="{{$lloguer->Tipus_de_asseguranca}}">
+                <input type="checkbox" class="form-control" name="Tipus_de_asseguranca" value="{{$lloguer->Tipus_de_asseguranca}}">
             </div>
 
             <button type="submit" class="btn btn-primary">Modifica</button>

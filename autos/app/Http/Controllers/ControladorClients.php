@@ -147,7 +147,7 @@ class ControladorClients extends Controller
 
         $clients = Clients::findOrFail($id);
         $clients->delete();
-        $lloguers = Lloguers::where('id_client', $id)->get();
+        $lloguers = Lloguers::where('DNI_client', $id)->get();
         foreach ($lloguers as $lloguer) {
             $lloguer->delete();
         }

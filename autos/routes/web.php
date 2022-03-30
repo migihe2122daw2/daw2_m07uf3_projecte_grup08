@@ -32,7 +32,12 @@ Route::post('/loginAdmin', function (Request $request) {
     
         if (Auth::user()->Tipus_de_usuari == 'Cap de departament') {
         
-            Session::put('username', Auth::user()->Nom_i_cognoms);
+           // Iniciar una session con el usuario
+
+           session_start();
+           session_regenerate_id();
+              $_SESSION['user'] = Auth::user()->Nom_i_cognoms;
+            
             return redirect()->intended('/admin');
         }
 

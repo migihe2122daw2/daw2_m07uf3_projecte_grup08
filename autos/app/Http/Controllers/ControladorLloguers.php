@@ -114,12 +114,11 @@ class ControladorLloguers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($DNI_client)
     {
         //
-
-        $lloguers = Lloguers::findOrFail($id);
-        $lloguers->delete();
+        $lloguer = Lloguers::findOrFail($DNI_client);
+        $lloguer->delete();
         return redirect('lloguers')->with('completed', 'Lloguer eliminat correctament');
     }
 }

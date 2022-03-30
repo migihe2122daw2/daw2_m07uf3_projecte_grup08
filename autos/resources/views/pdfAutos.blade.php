@@ -30,7 +30,6 @@ $dades = unserialize($autos->Dades);
           <td>Numero de portes</td>
           <td>Grandaria del maleter</td>
           <td>Tipo de combustible</td>
-          <td>Accions</td>
         </tr>
     </thead>
     <tbody>

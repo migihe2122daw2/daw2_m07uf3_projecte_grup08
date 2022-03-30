@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="Deposit_ple">Dipòsit plè</label>
-                <input type="text" name="Deposit_ple" id="Deposit_ple">
+                <input type="checkbox" name="Deposit_ple" value="1"id="Deposit_ple">
             </div>
             <div class="form-group">
                 <label for="Tipus_de_asseguranca">Tipus d'assegurança</label>
