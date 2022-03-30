@@ -44,6 +44,8 @@ $usuaris = Usuaris::all();
                 @method('DELETE')
                 <button class="btn btn-danger" type="submit">Eliminar</button>
                 </form>
+                <!-- Botón para descargar pdf -->
+                <a href="{{ route('usuaris.pdf',$usuari->Email)}}" class="btn btn-primary">Descarregar pdf</a>
             </td>
         </tr>
         @endforeach

@@ -56,6 +56,8 @@ $clients = Clients::all();
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
+                    <!-- Botón para generar un pdf -->
+                    <a href="{{ route('clients.pdf',$client->DNI_client) }}" class="btn btn-primary">PDF</a>
                 </td>
             </tr>
             @endforeach

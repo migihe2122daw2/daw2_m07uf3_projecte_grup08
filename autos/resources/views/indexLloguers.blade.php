@@ -48,6 +48,8 @@ $lloguers = Lloguers::all();
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
+                    <!-- Botón para descargar pdf -->
+                    <a href="{{ route('lloguers.pdf',$lloguer->DNI_client)}}" class="btn btn-primary">Descarregar pdf</a>
                 </td>
             </tr>
             @endforeach
