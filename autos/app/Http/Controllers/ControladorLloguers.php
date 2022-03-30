@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lloguers;
+use PDF;
 
 class ControladorLloguers extends Controller
 {
@@ -120,5 +121,17 @@ class ControladorLloguers extends Controller
         $lloguers = Lloguers::findOrFail($id);
         $lloguers->delete();
         return redirect('lloguers')->with('completed', 'Lloguer eliminat correctament');
+    }
+
+    public function pdf($id){
+        $lloguer = Lloguers::findOrFail($id);
+        if ($lloguer) {
+            $DNI_client = $lloguer->DNI_client;
+            $pdf = PDF::loadView('pdfLloguers', compact('DNI_client'));
+            $pdf ->setPaper('A3', 'landscape');
+            return $pdf->download('lloguers.pdf');
+        }
+        
+        return view('pdf', compact('lloguers'));
     }
 }

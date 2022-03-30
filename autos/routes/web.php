@@ -62,8 +62,9 @@ Route::get('/logout', function () {
 });
 
 Route::get('/autos/{id}/pdf', 'ControladorAutos@pdf')->name('autos.pdf');
-
-
+Route::get('/clients/{id}/pdf', 'ControladorClients@pdf')->name('clients.pdf');
+Route::get('/usuaris/{id}/pdf', 'ControladorUsuaris@pdf')->name('usuaris.pdf');
+Route::get('/lloguers/{id}/pdf', 'ControladorLloguers@pdf')->name('lloguers.pdf');
 
 Route::resource('lloguers', ControladorLloguers::class);
 Route::resource('autos', ControladorAutos::class);

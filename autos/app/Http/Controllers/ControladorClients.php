@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clients;
+use PDF;
 
 class ControladorClients extends Controller
 {
@@ -153,4 +154,17 @@ class ControladorClients extends Controller
         }
         return redirect('/clients')->with('completed', 'Client eliminat correctament');
     }
+
+    public function pdf($id){
+        $client = Clients::findOrFail($id);
+        if ($client) {
+            $dni = $client->DNI_client;
+            $pdf = PDF::loadView('pdfClients', compact('dni'));
+            $pdf ->setPaper('A2', 'landscape');
+            return $pdf->download('client.pdf');
+        }
+        return view('pdf', compact('autos'));
+    }
+ 
 }
+
