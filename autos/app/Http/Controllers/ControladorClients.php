@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clients;
 use PDF;
+use App\Models\Lloguers;
+use App\Http\Controllers\ControladorLloguers;
 
 class ControladorClients extends Controller
 {

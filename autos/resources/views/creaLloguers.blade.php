@@ -10,6 +10,16 @@
         Afegeix un nou lloguer
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="mx-3">
         <form action="{{ route('lloguers.store') }}" method="post">
             @csrf
@@ -39,11 +49,10 @@
             </div>
             <div class="form-group">
                 <label for="Deposit_ple">Dipòsit plè</label>
-                <input type="checkbox" name="Deposit_ple" value="1" id="Deposit_ple">
-            </div>
-            <div class="form-group">
-                <label for="Deposit_ple">Dipòsit buit</label>
-                <input type="checkbox" name="Deposit_ple" value="0" id="Deposit_ple">
+                <select class="form-control" name="Deposit_ple" id="Deposit_ple">
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="Tipus_de_asseguranca">Tipus d'assegurança</label>

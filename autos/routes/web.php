@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +19,17 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('loginWelcome');
+    if (Auth::check()) {
+        if (Auth::user()->Tipus_de_usuari == 'Cap de departament') {
+            return view('indexAdmin');
+        } else {
+            return view('indexTreballador');
+        }
+        
+    }else{
+        return view('loginWelcome');
+    }
+    
 });
 
 Route::get('/loginAdmin', function () {
@@ -43,6 +57,41 @@ Route::post('/loginAdmin', function (Request $request) {
 
         // Si no, redirigim a la vista de usuari
         else {
+            
+
+            // Enviar correu amb la hora de entrada
+            $mail = new PHPMailer(true);
+            try {
+                //Server settings
+                $mail->SMTPDebug = 0;                                       // Enable verbose debug output
+                $mail->isSMTP();                                            // Set mailer to use SMTP
+                $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                $mail->Username   = '15586419.clot@fje.edu';                     // SMTP username
+                $mail->Password   = 'cce07h5f';                               // SMTP password
+                $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+                $mail->Port       = 587;                                    // TCP port to connect to
+
+                //Recipients
+                $mail->setFrom('15586419.clot@fje.edu', 'Clot');
+                $mail->addAddress('15586419.clot@fje.edu', 'Clot');     // Add a recipient
+            
+                // Hora española
+                date_default_timezone_set('Europe/Madrid');
+               
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'Entrada';
+                $mail->Body    = '<h1>Hola, ' . Auth::user()->Nom_i_cognoms . '</h1>
+                                  <p>Has entrat a la plataforma</p>
+                                  <p>Hora: ' . date('H:i:s') . '</p>';
+                $mail->AltBody = 'Hola, ' . Auth::user()->Nom_i_cognoms . 'Has entrat a la plataforma, hora: ' . date('H:i:s');
+                
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
             return redirect()->intended('/treballador');
         }
     }
