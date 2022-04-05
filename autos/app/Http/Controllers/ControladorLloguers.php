@@ -104,7 +104,7 @@ class ControladorLloguers extends Controller
 
         ]);
 
-        Lloguers::where('id', $id)->update($dades);
+        Lloguers::where('DNI_client', $id)->update($dades);
         return redirect('lloguers')->with('completed', 'Lloguer actualitzat correctament');
     }
 

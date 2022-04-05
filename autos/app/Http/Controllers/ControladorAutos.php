@@ -138,7 +138,7 @@ class ControladorAutos extends Controller
         //
         $autos = Autos::findOrFail($id);
         $autos->delete();
-        $lloguers = Lloguers::where('id_auto', $id)->get();
+        $lloguers = Lloguers::where('Matricula_auto', $id)->first();
         foreach ($lloguers as $lloguer) {
             $lloguer->delete();
         }

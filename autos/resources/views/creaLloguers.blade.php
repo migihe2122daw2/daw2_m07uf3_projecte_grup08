@@ -39,7 +39,11 @@
             </div>
             <div class="form-group">
                 <label for="Deposit_ple">Dipòsit plè</label>
-                <input type="checkbox" name="Deposit_ple" value="1"id="Deposit_ple">
+                <input type="checkbox" name="Deposit_ple" value="1" id="Deposit_ple">
+            </div>
+            <div class="form-group">
+                <label for="Deposit_ple">Dipòsit buit</label>
+                <input type="checkbox" name="Deposit_ple" value="0" id="Deposit_ple">
             </div>
             <div class="form-group">
                 <label for="Tipus_de_asseguranca">Tipus d'assegurança</label>
@@ -49,7 +53,6 @@
                     <option value="Sense franquicia">Sense franquicia</option>                    
                 </select>
             </div>
-
             <button type="submit" class="btn btn-primary">Crea lloguer</button>
             <button type="button" class="btn btn-primary">
                 <a href="{{ url('lloguers') }}" style="color: white; text-decoration: none;">Torna a la vista de lloguers</a>
